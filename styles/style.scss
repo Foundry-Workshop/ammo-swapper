@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+
+#workshop-ammo-swapper {
+  z-index: 70;
+  position: fixed;
+  bottom: 10px;
+  left: 830px;
+  min-width: 140px;
+  height: 52px;
+  margin: 0;
+  padding: 3px 6px 3px 3px;
+  border: 1px solid #000;
+  display: flex;
+
+  &.empty {
+    visibility: hidden;
+  }
+
+  .weapon {
+    height: 44px;
+    display: flex;
+    position: relative;
+
+    .image {
+      height: 44px;
+      width: 44px;
+    }
+
+    .name {
+      font-family: Lato, Signika, sans-serif;
+    }
+
+    .info {
+      display: flex;
+      flex-direction: column;
+      margin-left: 3px;
+
+      > .name {
+        font-variant: small-caps;
+        font-size: 16px;
+      }
+
+      .selected {
+        height: 25px;
+        display: flex;
+        align-items: center;
+
+        .name {
+          margin-left: 3px;
+        }
+
+        .image {
+          height: 25px;
+          width: 25px;
+        }
+
+        &.none {
+          font-style: italic;
+          font-family: Lato, Signika, sans-serif;
+          font-size: 13px;
+        }
+      }
+    }
+
+    .ammunitions {
+      position: absolute;
+      bottom: 52px;
+      border: 1px solid #000;
+      background: url(/ui/denim075.png) repeat;
+      border-radius: 5px;
+      box-shadow: 0 0 4px #000;
+      padding: 3px;
+      left: 44px;
+      width: max-content;
+
+      .ammo {
+        height: 44px;
+        display: flex;
+        align-items: center;
+
+        .name {
+          margin: 0 3px;
+          white-space: nowrap;
+        }
+
+        &:hover {
+          background: #aaaaaa88;
+        }
+      }
+
+      .ammo:not(:first-child) {
+        margin-top: 4px;
+      }
+    }
+  }
+
+  .weapon:not(:first-child) {
+    margin-left: 12px;
+  }
+}

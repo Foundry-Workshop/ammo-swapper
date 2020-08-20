@@ -1,0 +1,17 @@
+{
+  "WorkshopAmmoSwapper": {
+    "Settings": {
+      "enable": {
+        "name": "Enable Ammo Swapper",
+        "hint": "Check this to enable Ammo Swapper HUD in this browser."
+      },
+      "quantity": {
+        "name": "Show Ammo Quantity",
+        "hint": "Check this to display amount of ammunition available in the Ammo Swapper HUD."
+      }
+    },
+    "HUD": {
+      "noAmmoSelected": "No ammo selected"
+    }
+  }
+}

@@ -1,0 +1,6 @@
+.idea/
+devtool/
+node_modules/
+src/styles/.sass-cache/
+src/lang/untranslated.json
+package.json
