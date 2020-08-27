@@ -21,9 +21,7 @@ Hooks.once("ready", () => {
 });
 
 Hooks.on("updateUser", (user, data, options, userId) => {
-  console.log(data);
-  console.log(Object.keys(data));
-  if (Object.keys(data).includes('character')) ui.ammoSwapper?.render(true);
+  if (Object.keys(data).includes('character')) AmmoSwapper.init();
 });
 
 Hooks.on("updateActor", (actor, data, options, userId) => {
