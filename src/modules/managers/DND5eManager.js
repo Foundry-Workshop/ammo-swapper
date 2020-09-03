@@ -8,7 +8,7 @@ export default class DND5eManager extends BaseManager {
   static get weapons() {
     const actor = game.user.character;
     const items = actor.items;
-    const weapons = items.filter(i => (i.data.type === 'weapon' && i.data.data.equipped === true && i.data.data.weaponType === "martialR" && i.data.data.consume.type === 'ammo'));
+    const weapons = items.filter(i => (i.data.type === 'weapon' && i.data.data.equipped === true && ["simpleR", "martialR"].includes(i.data.data.weaponType) && i.data.data.consume.type === 'ammo'));
     const ammunition = this.ammunition;
 
     return weapons.map(w => {

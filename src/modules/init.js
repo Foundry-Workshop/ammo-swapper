@@ -1,7 +1,6 @@
 import constants from "./constants.js";
 import registerSettings from "./settings.js";
 import AmmoSwapper from "./AmmoSwapper.js";
-import ManagerFactory from "./ManagerFactory.js";
 
 Hooks.once('init', () => {
   registerSettings();

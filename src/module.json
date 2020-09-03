@@ -10,14 +10,14 @@
       "url": "https://www.patreon.com/foundryworkshop"
     }
   ],
-  "version": "0.1.1",
+  "version": "0.1.2",
   "minimumCoreVersion": "0.6.0",
   "compatibleCoreVersion": "0.6.6",
   "url": "https://github.com/Foundry-Workshop/ammo-swapper",
   "manifest": "https://raw.githubusercontent.com/Foundry-Workshop/ammo-swapper/master/src/module.json",
-  "download": "https://github.com/Foundry-Workshop/ammo-swapper/releases/download/v0.1.1/v0.1.1.zip",
-  "readme": "https://github.com/Foundry-Workshop/ammo-swapper/blob/v0.1.1/README.md",
-  "changelog": "https://github.com/Foundry-Workshop/ammo-swapper/blob/v0.1.1/changelog.md",
+  "download": "https://github.com/Foundry-Workshop/ammo-swapper/releases/download/v0.1.2/v0.1.2.zip",
+  "readme": "https://github.com/Foundry-Workshop/ammo-swapper/blob/v0.1.2/README.md",
+  "changelog": "https://github.com/Foundry-Workshop/ammo-swapper/blob/v0.1.2/changelog.md",
   "bugs": "https://github.com/Foundry-Workshop/ammo-swapper/issues",
   "esmodules": [
     "./modules/init.js"
