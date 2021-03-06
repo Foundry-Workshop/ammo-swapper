@@ -24,9 +24,12 @@ Hooks.on("updateUser", (user, data, options, userId) => {
 });
 
 Hooks.on("updateActor", (actor, data, options, userId) => {
-  if (actor.id === game.user.character?.id) ui.ammoSwapper?.render();
+  if (actor.id === game.user.character?.id) 
+	  setTimeout(()=>{ui.ammoSwapper?.render()});
+  
 });
 
 Hooks.on("updateOwnedItem", (actor, item, data, options, userId) => {
-  if (actor.id === game.user.character?.id) ui.ammoSwapper?.render();
+  if (actor.id === game.user.character?.id) 
+	  setTimeout(()=>{ui.ammoSwapper?.render()});
 });
