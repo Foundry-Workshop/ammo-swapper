@@ -1,0 +1,62 @@
+{
+  "name": "forien-ammo-swapper",
+  "title": "Forien's Ammo Swapper",
+  "version": "0.2.0",
+  "url": "https://github.com/Foundry-Workshop/ammo-swapper",
+  "manifest": "https://raw.githubusercontent.com/Foundry-Workshop/ammo-swapper/master/src/module.json",
+  "download": "https://github.com/Foundry-Workshop/ammo-swapper/releases/download/v0.1.2/v0.1.2.zip",
+  "readme": "https://github.com/Foundry-Workshop/ammo-swapper/blob/v0.1.2/README.md",
+  "changelog": "https://github.com/Foundry-Workshop/ammo-swapper/blob/v0.1.2/changelog.md",
+  "bugs": "https://github.com/Foundry-Workshop/ammo-swapper/issues",
+  "description": "Adds HUD displaying all equipped ranged weapons and allowing to easily swap ammunition used in that weapon. Currently supports DND 5e and WFRP 4e.",
+  "authors": [
+    {
+      "name": "Forien",
+      "url": "https://www.patreon.com/foundryworkshop"
+    }
+  ],
+  "compatibility": {
+    "minimum": "11",
+    "verified": "11"
+  },
+  "relationships": {
+    "systems": [
+      {
+        "id": "dnd5e",
+        "type": "system"
+      },
+      {
+        "id": "wfrp4e",
+        "type": "system"
+      }
+    ]
+  },
+  "esmodules": [
+    "./modules/ammo-swapper.mjs"
+  ],
+  "styles": [
+    "./styles/ammo-swapper.css"
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "languages/en.json"
+    }
+  ],
+  "flags": {
+    "hotReload": {
+      "extensions": [
+        "css",
+        "html",
+        "hbs",
+        "json"
+      ],
+      "paths": [
+        "templates/",
+        "styles/",
+        "languages/"
+      ]
+    }
+  }
+}

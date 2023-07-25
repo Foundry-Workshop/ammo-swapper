@@ -1,13 +1,13 @@
 export default class BaseManager {
   /**
    *
-   * @return {[]}
+   * @return {Item[]}
    */
   static get weapons() {}
 
   /**
    *
-   * @return {[]}
+   * @return {Item[]}
    */
   static get ammunition() {}
 

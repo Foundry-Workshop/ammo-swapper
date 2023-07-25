@@ -1,0 +1,85 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+#workshop-ammo-swapper {
+  z-index: 70;
+  position: fixed;
+  bottom: 10px;
+  left: 830px;
+  min-width: 140px;
+  height: 52px;
+  margin: 0;
+  padding: 3px 6px 3px 3px;
+  border: 1px solid #000;
+  display: flex;
+}
+#workshop-ammo-swapper.empty {
+  visibility: hidden;
+}
+#workshop-ammo-swapper .weapon {
+  height: 44px;
+  display: flex;
+  position: relative;
+}
+#workshop-ammo-swapper .weapon .image {
+  height: 44px;
+  width: 44px;
+}
+#workshop-ammo-swapper .weapon .name {
+  font-family: Lato, Signika, sans-serif;
+}
+#workshop-ammo-swapper .weapon .info {
+  display: flex;
+  flex-direction: column;
+  margin-left: 3px;
+}
+#workshop-ammo-swapper .weapon .info > .name {
+  font-variant: small-caps;
+  font-size: 16px;
+}
+#workshop-ammo-swapper .weapon .info .selected {
+  height: 25px;
+  display: flex;
+  align-items: center;
+}
+#workshop-ammo-swapper .weapon .info .selected .name {
+  margin-left: 3px;
+}
+#workshop-ammo-swapper .weapon .info .selected .image {
+  height: 25px;
+  width: 25px;
+}
+#workshop-ammo-swapper .weapon .info .selected.none {
+  font-style: italic;
+  font-family: Lato, Signika, sans-serif;
+  font-size: 13px;
+}
+#workshop-ammo-swapper .weapon .ammunitions {
+  position: absolute;
+  bottom: 52px;
+  border: 1px solid #000;
+  background: url(/ui/denim075.png) repeat;
+  border-radius: 5px;
+  box-shadow: 0 0 4px #000;
+  padding: 3px;
+  left: 44px;
+  width: max-content;
+}
+#workshop-ammo-swapper .weapon .ammunitions .ammo {
+  height: 44px;
+  display: flex;
+  align-items: center;
+}
+#workshop-ammo-swapper .weapon .ammunitions .ammo .name {
+  margin: 0 3px;
+  white-space: nowrap;
+}
+#workshop-ammo-swapper .weapon .ammunitions .ammo:hover {
+  background: rgba(170, 170, 170, 0.5333333333);
+}
+#workshop-ammo-swapper .weapon .ammunitions .ammo:not(:first-child) {
+  margin-top: 4px;
+}
+#workshop-ammo-swapper .weapon:not(:first-child) {
+  margin-left: 12px;
+}
+
+/*# sourceMappingURL=ammo-swapper.css.map */

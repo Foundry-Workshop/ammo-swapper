@@ -3,21 +3,21 @@ import BaseManager from "./BaseManager.js";
 export default class DND5eManager extends BaseManager {
   /**
    *
-   * @return {[]}
+   * @return {Item5e[]}
    */
   static get weapons() {
     const actor = game.user.character;
     const items = actor.items;
-    const weapons = items.filter(i => (i.data.type === 'weapon' && i.data.data.equipped === true && ["simpleR", "martialR"].includes(i.data.data.weaponType) && i.data.data.consume.type === 'ammo'));
+    const weapons = items.filter(i => (i.type === 'weapon' && i.system.equipped === true && ["simpleR", "martialR"].includes(i.system.weaponType) && i.system.consume.type === 'ammo'));
     const ammunition = this.ammunition;
 
     return weapons.map(w => {
-      let selected = ammunition.find(a => a._id === w.data.data.consume.target);
+      let selected = ammunition.find(a => a._id === w.system.consume.target);
 
       return {
-        _id: w.data._id,
-        img: w.data.img,
-        name: w.data.name,
+        _id: w._id,
+        img: w.img,
+        name: w.name,
         selected: selected,
         ammunition: ammunition
       }
@@ -26,18 +26,18 @@ export default class DND5eManager extends BaseManager {
 
   /**
    *
-   * @return {[]}
+   * @return {Item5e[]}
    */
   static get ammunition() {
     const actor = game.user.character;
     const items = actor.items;
-    let ammo = items.filter(i => i.data.type === 'consumable' && i.data.data.consumableType === 'ammo');
+    let ammo = items.filter(i => i.type === 'consumable' && i.system.consumableType === 'ammo');
 
     return ammo.map(a => ({
-      _id: a.data._id,
-      img: a.data.img,
-      name: a.data.name,
-      quantity: a.data.data.quantity
+      _id: a._id,
+      img: a.img,
+      name: a.name,
+      quantity: a.system.quantity
     }));
   }
 

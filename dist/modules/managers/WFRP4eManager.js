@@ -3,17 +3,17 @@ import BaseManager from "./BaseManager.js";
 export default class WFRP4eManager extends BaseManager {
   /**
    *
-   * @return {[]}
+   * @return {ItemWfrp4e[]}
    */
   static get weapons() {
     const actor = game.user.character;
     const items = actor.items;
-    const weapons = items.filter(i => i.data.type === 'weapon' && i.data.data.equipped === true && i.data.data.ammunitionGroup.value !== "none");
+    const weapons = items.filter(i => i.data.type === 'weapon' && i.system.equipped === true && i.system.ammunitionGroup.value !== "none");
     const ammunition = this.ammunition;
 
     return weapons.map(w => {
-      let ammo = ammunition[w.data.data.ammunitionGroup.value];
-      let selected = ammo?.find(a => a._id === w.data.data.currentAmmo.value);
+      let ammo = ammunition[w.system.ammunitionGroup.value];
+      let selected = ammo?.find(a => a._id === w.system.currentAmmo.value);
 
       return {
         _id: w.data._id,
@@ -27,7 +27,7 @@ export default class WFRP4eManager extends BaseManager {
 
   /**
    *
-   * @return {[]}
+   * @return {ItemWfrp4e[]}
    */
   static get ammunition() {
     const actor = game.user.character;
@@ -35,7 +35,7 @@ export default class WFRP4eManager extends BaseManager {
     let ammo = items.filter(i => i.data.type === 'ammunition');
     let ammunition = {};
     ammo.forEach(a => {
-      let ammoType = a.data.data.ammunitionType.value;
+      let ammoType = a.system.ammunitionType.value;
       if (ammunition[ammoType] === undefined)
         ammunition[ammoType] = [];
 
@@ -43,7 +43,7 @@ export default class WFRP4eManager extends BaseManager {
         _id: a.data._id,
         img: a.data.img,
         name: a.data.name,
-        quantity: a.data.data.quantity.value
+        quantity: a.system.quantity.value
       })
     });
 

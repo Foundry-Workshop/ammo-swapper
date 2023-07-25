@@ -2,5 +2,5 @@
 devtool/
 node_modules/
 styles/.sass-cache/
-src/lang/untranslated.json
+dist/languages/untranslated.json
 package.json

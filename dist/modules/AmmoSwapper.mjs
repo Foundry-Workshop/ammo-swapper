@@ -1,7 +1,7 @@
-import constants from "./constants.js";
+import constants from "./constants.mjs";
 import BaseManager from "./managers/BaseManager.js";
 import Error from "./utility/Error.js";
-import ManagerFactory from "./ManagerFactory.js";
+import ManagerFactory from "./ManagerFactory.mjs";
 
 export default class AmmoSwapper extends Application {
   static _instance;
@@ -31,7 +31,7 @@ export default class AmmoSwapper extends Application {
     return {
       weapons: weapons,
       empty: weapons.length === 0,
-      displayQuantity: game.settings.get(constants.moduleName, 'quantity')
+      displayQuantity: game.settings.get(constants.moduleId, 'quantity')
     };
   }
 
@@ -39,7 +39,7 @@ export default class AmmoSwapper extends Application {
   activateListeners(html) {
     super.activateListeners(html);
 
-    document.addEventListener("click", ev => {
+    document.addEventListener("click", _ev => {
       html.find('.ammunitions:visible').hide(300);
     });
 
@@ -50,7 +50,7 @@ export default class AmmoSwapper extends Application {
       const weaponId = weapon.data("weapon-id");
       const ammoId = ammo.data("ammo-id");
 
-      this.manager.setAmmunition(weaponId, ammoId);
+      this.manager.setAmmunition(weaponId, ammoId).then(() => this.render());
     });
 
     html.on('click', '.weapon', (event) => {
@@ -61,7 +61,7 @@ export default class AmmoSwapper extends Application {
   }
 
   static init() {
-    if (game.user.character && game.settings.get(constants.moduleName, 'enable')) {
+    if (game.user.character && game.settings.get(constants.moduleId, 'enable')) {
       if (!(ui.ammoSwapper instanceof this)) {
         let manager = ManagerFactory.getManagerBySystem(game.system.id);
         ui.ammoSwapper = new this(manager);
