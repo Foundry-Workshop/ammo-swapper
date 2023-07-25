@@ -59,7 +59,7 @@ export default class WFRP4eManager extends BaseManager {
     const actor = game.user.character;
     const weapon = actor.items.find(i => i.id === weaponId);
     if (weapon) {
-      await weapon.update({'data.currentAmmo.value': ammoId});
+      await weapon.update({'currentAmmo.value': ammoId});
     }
   }
 }

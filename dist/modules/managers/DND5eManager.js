@@ -50,7 +50,7 @@ export default class DND5eManager extends BaseManager {
     const actor = game.user.character;
     const weapon = actor.items.find(i => i.id === weaponId);
     if (weapon) {
-      await weapon.update({'data.consume.target': ammoId});
+      await weapon.update({'consume.target': ammoId});
     }
   }
 }

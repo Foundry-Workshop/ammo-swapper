@@ -1,6 +1,6 @@
 import DND5eManager from "./managers/DND5eManager.js";
 import Error from "./utility/Error.js";
-import constants from "./constants.mjs";
+import {constants} from "./constants.mjs";
 import WFRP4eManager from "./managers/WFRP4eManager.js";
 
 export default class ManagerFactory {

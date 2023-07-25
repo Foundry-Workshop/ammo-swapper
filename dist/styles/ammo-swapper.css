@@ -1,9 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
-#workshop-ammo-swapper {
+#forien-ammo-swapper {
   z-index: 70;
-  position: fixed;
-  bottom: 10px;
-  left: 830px;
+  position: absolute;
   min-width: 140px;
   height: 52px;
   margin: 0;
@@ -11,48 +9,78 @@
   border: 1px solid #000;
   display: flex;
 }
-#workshop-ammo-swapper.empty {
+#forien-ammo-swapper.empty {
   visibility: hidden;
 }
-#workshop-ammo-swapper .weapon {
+#forien-ammo-swapper .drag-handle {
+  display: none;
+  background: url(/ui/denim075.png) repeat;
+  width: 15px;
+  right: -15px;
+  margin: 0;
+  position: absolute;
+  height: calc(100% + 2px);
+  top: -1px;
+  border: 1px solid black;
+  border-left: none;
+  border-radius: 0 5px 5px 0;
+  z-index: 60;
+  box-sizing: border-box;
+  align-items: center;
+  justify-items: center;
+}
+#forien-ammo-swapper .drag-handle i {
+  width: 100%;
+  text-align: center;
+  font-size: var(--font-size-11);
+  font-weight: 300;
+}
+#forien-ammo-swapper.draggable-enabled {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+#forien-ammo-swapper.draggable-enabled .drag-handle {
+  display: flex;
+}
+#forien-ammo-swapper .weapon {
   height: 44px;
   display: flex;
   position: relative;
 }
-#workshop-ammo-swapper .weapon .image {
+#forien-ammo-swapper .weapon .image {
   height: 44px;
   width: 44px;
 }
-#workshop-ammo-swapper .weapon .name {
+#forien-ammo-swapper .weapon .name {
   font-family: Lato, Signika, sans-serif;
 }
-#workshop-ammo-swapper .weapon .info {
+#forien-ammo-swapper .weapon .info {
   display: flex;
   flex-direction: column;
   margin-left: 3px;
 }
-#workshop-ammo-swapper .weapon .info > .name {
+#forien-ammo-swapper .weapon .info > .name {
   font-variant: small-caps;
   font-size: 16px;
 }
-#workshop-ammo-swapper .weapon .info .selected {
+#forien-ammo-swapper .weapon .info .selected {
   height: 25px;
   display: flex;
   align-items: center;
 }
-#workshop-ammo-swapper .weapon .info .selected .name {
+#forien-ammo-swapper .weapon .info .selected .name {
   margin-left: 3px;
 }
-#workshop-ammo-swapper .weapon .info .selected .image {
+#forien-ammo-swapper .weapon .info .selected .image {
   height: 25px;
   width: 25px;
 }
-#workshop-ammo-swapper .weapon .info .selected.none {
+#forien-ammo-swapper .weapon .info .selected.none {
   font-style: italic;
   font-family: Lato, Signika, sans-serif;
   font-size: 13px;
 }
-#workshop-ammo-swapper .weapon .ammunitions {
+#forien-ammo-swapper .weapon .ammunitions {
   position: absolute;
   bottom: 52px;
   border: 1px solid #000;
@@ -63,22 +91,22 @@
   left: 44px;
   width: max-content;
 }
-#workshop-ammo-swapper .weapon .ammunitions .ammo {
+#forien-ammo-swapper .weapon .ammunitions .ammo {
   height: 44px;
   display: flex;
   align-items: center;
 }
-#workshop-ammo-swapper .weapon .ammunitions .ammo .name {
+#forien-ammo-swapper .weapon .ammunitions .ammo .name {
   margin: 0 3px;
   white-space: nowrap;
 }
-#workshop-ammo-swapper .weapon .ammunitions .ammo:hover {
+#forien-ammo-swapper .weapon .ammunitions .ammo:hover {
   background: rgba(170, 170, 170, 0.5333333333);
 }
-#workshop-ammo-swapper .weapon .ammunitions .ammo:not(:first-child) {
+#forien-ammo-swapper .weapon .ammunitions .ammo:not(:first-child) {
   margin-top: 4px;
 }
-#workshop-ammo-swapper .weapon:not(:first-child) {
+#forien-ammo-swapper .weapon:not(:first-child) {
   margin-left: 12px;
 }
 

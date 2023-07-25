@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+$drag-handle-width: 15px;
 
-
-#workshop-ammo-swapper {
+#forien-ammo-swapper {
   z-index: 70;
-  position: fixed;
-  bottom: 10px;
-  left: 830px;
+  position: absolute;
+  //bottom: 10px;
+  //left: 850px;
   min-width: 140px;
   height: 52px;
   margin: 0;
@@ -15,6 +15,41 @@
 
   &.empty {
     visibility: hidden;
+  }
+
+  .drag-handle {
+    display: none;
+    background: url(/ui/denim075.png) repeat;
+    width: $drag-handle-width;
+    right: -$drag-handle-width;
+    margin: 0;
+    position: absolute;
+    height: calc(100% + 2px);
+    top: -1px;
+    border: 1px solid black;
+    border-left: none;
+    border-radius: 0 5px 5px 0;
+    z-index: 60;
+    box-sizing: border-box;
+
+    align-items: center;
+    justify-items: center;
+
+    i {
+      width: 100%;
+      text-align: center;
+      font-size: var(--font-size-11);
+      font-weight: 300;
+    }
+  }
+
+  &.draggable-enabled {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+
+    .drag-handle {
+      display: flex;
+    }
   }
 
   .weapon {

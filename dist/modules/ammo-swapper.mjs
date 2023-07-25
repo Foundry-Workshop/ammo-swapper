@@ -1,4 +1,4 @@
-import constants from "./constants.mjs";
+import {constants} from "./constants.mjs";
 import registerSettings from "./settings.mjs";
 import AmmoSwapper from "./AmmoSwapper.mjs";
 import Utility from "./utility/Utility.mjs";
