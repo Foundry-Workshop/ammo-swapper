@@ -19,7 +19,7 @@ export default class AmmoSwapper extends Application {
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       id: "workshop-ammo-swapper",
-      template: `${constants.modulePath}/templates/ammo-swapper.html`,
+      template: `${constants.modulePath}/templates/ammo-swapper.hbs`,
       popOut: false
     });
   }
