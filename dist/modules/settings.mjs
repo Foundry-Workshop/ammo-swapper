@@ -64,6 +64,7 @@ export default function registerSettings() {
   game.settings.register(constants.moduleId, settings.position, {
     scope: 'client',
     config: false,
+    type: String,
     default: '{}',
   });
 }
