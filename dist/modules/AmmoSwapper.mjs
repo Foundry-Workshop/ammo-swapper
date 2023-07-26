@@ -154,12 +154,14 @@ export default class AmmoSwapper extends Application {
       $(event.currentTarget).find('.ammunitions:hidden').show(300);
     });
 
-    html.on('auxclick', '.weapon', (event) => {
-      event.stopPropagation();
-      const weapon = $(event.currentTarget);
-      const weaponId = weapon.data('weapon-id');
-      this.manager.equipWeapon(weaponId).then(() => this.render());
-    });
+    if (!game.settings.get(constants.moduleId, settings.onlyEquipped)) {
+      html.on('auxclick', '.weapon', (event) => {
+        event.stopPropagation();
+        const weapon = $(event.currentTarget);
+        const weaponId = weapon.data('weapon-id');
+        this.manager.equipWeapon(weaponId).then(() => this.render());
+      });
+    }
   }
 
   render(force = false, options = {}) {
