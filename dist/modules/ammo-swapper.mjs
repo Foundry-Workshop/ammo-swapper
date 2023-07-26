@@ -3,8 +3,6 @@ import registerSettings from "./settings.mjs";
 import AmmoSwapper from "./AmmoSwapper.mjs";
 import Utility from "./utility/Utility.mjs";
 
-console.log('hello');
-
 Hooks.once('init', () => {
   registerSettings();
 
@@ -27,10 +25,6 @@ Hooks.on("updateUser", (user, data, _options, _userId) => {
   if (Object.keys(data).includes('character')) AmmoSwapper.init();
 });
 
-Hooks.on("updateActor", (actor, _data, _options, _userId) => {
-  if (actor.id === game.user.character?.id) ui.ammoSwapper?.render();
-});
-
-Hooks.on("updateOwnedItem", (actor, _item, _data, _options, _userId) => {
-  if (actor.id === game.user.character?.id) ui.ammoSwapper?.render();
+Hooks.on("updateItem", (item, _data, _diff, _userId) => {
+  if (item.actor?.id === game.user.character?.id) ui.ammoSwapper?.render();
 });

@@ -27,40 +27,64 @@ export default class AmmoSwapper extends Application {
     });
   }
 
+  /**
+   * Sets the initial position based on saved setting, otherwise sets the initial position
+   */
   #setInitialPosition() {
-    console.log('#setInitialPosition');
     const savedPosition = JSON.parse(game.settings.get(constants.moduleId, settings.position))
-    console.log({savedPosition});
 
     if (savedPosition?.top) {
       this.position = savedPosition;
     } else {
-      this.#setDefaultPosition();
+      this.#setDefaultPosition(false);
     }
   }
 
-  #setDefaultPosition() {
+  /**
+   * Sets the position as default one and resets the position setting
+   *
+   * @param {boolean} savePosition
+   */
+  #setDefaultPosition(savePosition = true) {
     const {innerHeight: windowHeight} = window;
     const appHeight = this.position.height;
     const margin = defaults.marginBottom;
+
     let position = defaults.ammoSwapperPosition;
     position.top = windowHeight - appHeight - margin;
     this.position = position;
-    game.settings.set(constants.moduleId, settings.position, '{}')
-    console.log({windowHeight, appHeight, margin, position})
+
+    if (savePosition) game.settings.set(constants.moduleId, settings.position, '{}')
   }
 
   resetPosition() {
-    this.#setDefaultPosition();
+    this.#setDefaultPosition(true);
 
     this.render();
   }
 
+  /**
+   * @override
+   */
   setPosition({left, top, width, height, scale} = {}) {
+    // Need to temporarily set resizable = true, so that position is correctly set via Draggable
     this.options.resizable = true;
-    super.setPosition({left, top, width, height, scale});
+    const newPosition = super.setPosition({left:left, top:top, height: height});
     this.options.resizable = false;
 
+    // If app is below the middle of the screen, ammo pops upwards, otherwise downward
+    const ammoList = this.element.find('.ammunitions');
+    const {innerHeight: windowHeight} = window;
+
+    if (top > (windowHeight / 2)) {
+      ammoList.css('bottom', newPosition.height);
+      ammoList.css('top', 'auto');
+    } else {
+      ammoList.css('top', newPosition.height);
+      ammoList.css('bottom', 'auto');
+    }
+
+    // Save current position as setting, but wait a bit after dragging ends
     if (this.#positionTimeout) {
       clearTimeout(this.#positionTimeout);
     }
@@ -69,7 +93,7 @@ export default class AmmoSwapper extends Application {
       game.settings.set(constants.moduleId, settings.position, JSON.stringify(this.position));
     }, defaults.positionTimeoutDelay);
 
-    return this.position;
+    return newPosition;
   }
 
   /** @override */
@@ -101,8 +125,8 @@ export default class AmmoSwapper extends Application {
       event.stopPropagation();
       const ammo = $(event.currentTarget);
       const weapon = ammo.closest('.weapon');
-      const weaponId = weapon.data("weapon-id");
-      const ammoId = ammo.data("ammo-id");
+      const weaponId = weapon.data('weapon-id');
+      const ammoId = ammo.data('ammo-id');
 
       this.manager.setAmmunition(weaponId, ammoId).then(() => this.render());
     });
@@ -112,17 +136,27 @@ export default class AmmoSwapper extends Application {
       html.find('.ammunitions:visible').hide(300);
       $(event.currentTarget).find('.ammunitions:hidden').show(300);
     });
+
+    html.on('auxclick', '.weapon', (event) => {
+      event.stopPropagation();
+      const weapon = $(event.currentTarget);
+      const weaponId = weapon.data('weapon-id');
+      this.manager.equipWeapon(weaponId).then(() => this.render());
+    });
   }
 
   static init() {
-    if (game.user.character && game.settings.get(constants.moduleId, 'enable')) {
-      if (!(ui.ammoSwapper instanceof this)) {
-        let manager = ManagerFactory.getManagerBySystem(game.system.id);
-        ui.ammoSwapper = new this(manager);
-      }
-      ui.ammoSwapper.render(true);
+    if (game.settings.get(constants.moduleId, 'enable')) {
+      if (game.user.character) {
+        if (!(ui.ammoSwapper instanceof this)) {
+          let manager = ManagerFactory.getManagerBySystem(game.system.id);
+          ui.ammoSwapper = new this(manager);
+        }
+        ui.ammoSwapper.render(true);
 
-      return ui.ammoSwapper;
+        return ui.ammoSwapper;
+      }
+        ui.ammoSwapper?.close();
     }
 
     return undefined;

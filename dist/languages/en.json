@@ -18,6 +18,10 @@
         "resetPosition": {
           "name": "Reset Position",
           "hint": "Check this to reset the Ammo Swapper's position to default."
+        },
+        "onlyEquipped": {
+          "name": "Show only equipped Weapons",
+          "hint": "When checked, shows all available weapons. Otherwise shows only equipped."
         }
       },
 

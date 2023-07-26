@@ -1,4 +1,5 @@
 import BaseManager from "./BaseManager.js";
+import {constants, settings} from "../constants.mjs";
 
 export default class DND5eManager extends BaseManager {
   /**
@@ -8,7 +9,8 @@ export default class DND5eManager extends BaseManager {
   static get weapons() {
     const actor = game.user.character;
     const items = actor.items;
-    const weapons = items.filter(i => (i.type === 'weapon' && i.system.equipped === true && ["simpleR", "martialR"].includes(i.system.weaponType) && i.system.consume.type === 'ammo'));
+    const checkEquipped = game.settings.get(constants.moduleId, settings.onlyEquipped);
+    const weapons = items.filter(i => (i.type === 'weapon' && (checkEquipped ? i.system.equipped === true : true) && ["simpleR", "martialR"].includes(i.system.weaponType) && i.system.consume.type === 'ammo'));
     const ammunition = this.ammunition;
 
     return weapons.map(w => {
@@ -19,7 +21,8 @@ export default class DND5eManager extends BaseManager {
         img: w.img,
         name: w.name,
         selected: selected,
-        ammunition: ammunition
+        ammunition: ammunition,
+        equipped: !checkEquipped ? w.system.equipped : false
       }
     });
   }
@@ -50,7 +53,17 @@ export default class DND5eManager extends BaseManager {
     const actor = game.user.character;
     const weapon = actor.items.find(i => i.id === weaponId);
     if (weapon) {
-      await weapon.update({'consume.target': ammoId});
+      await weapon.update({'system.consume.target': ammoId});
     }
   }
+
+  /**
+   *
+   * @param {string} weaponId
+   */
+  static async equipWeapon(weaponId) {
+    const actor = game.user.character;
+    const item = actor.items.get(weaponId);
+
+    return item.update({["system.equipped"]: !foundry.utils.getProperty(item, "system.equipped")});}
 }

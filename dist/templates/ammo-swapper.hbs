@@ -1,7 +1,12 @@
 <div id="forien-ammo-swapper" class="app {{#if empty}}empty{{/if}}">
     {{#each weapons}}
     <div class="weapon" data-weapon-id="{{this._id}}">
-        <img src="{{this.img}}" class="image" alt="{{this.name}}">
+        <div class="image">
+            <img src="{{this.img}}" class="image-img" alt="{{this.name}}">
+            {{#if this.equipped}}
+                <i class="fas fa-hand-holding-box equipped"></i>
+            {{/if}}
+        </div>
         <div class="info">
             <span class="name">{{this.name}}</span>
             {{#if this.selected}}

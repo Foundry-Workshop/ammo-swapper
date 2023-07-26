@@ -9,6 +9,8 @@ export default class Utility {
         colour = "#aa2222";
         break;
       case "warning":
+        colour = "#aaaa22";
+        break;
       case "info":
       default:
         colour = "#22aa22";

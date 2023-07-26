@@ -60,6 +60,17 @@ $drag-handle-width: 15px;
     .image {
       height: 44px;
       width: 44px;
+      position: relative;
+
+      .equipped {
+        position: absolute;
+        bottom: 5px;
+        right: 5px;
+        text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+        font-size: var(--font-size-11);
+        font-weight: 600;
+        color: #ffddaa;
+      }
     }
 
     .name {
@@ -83,6 +94,7 @@ $drag-handle-width: 15px;
 
         .name {
           margin-left: 3px;
+          white-space: nowrap;
         }
 
         .image {

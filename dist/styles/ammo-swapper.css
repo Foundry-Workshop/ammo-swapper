@@ -50,6 +50,16 @@
 #forien-ammo-swapper .weapon .image {
   height: 44px;
   width: 44px;
+  position: relative;
+}
+#forien-ammo-swapper .weapon .image .equipped {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  font-size: var(--font-size-11);
+  font-weight: 600;
+  color: #ffddaa;
 }
 #forien-ammo-swapper .weapon .name {
   font-family: Lato, Signika, sans-serif;
@@ -70,6 +80,7 @@
 }
 #forien-ammo-swapper .weapon .info .selected .name {
   margin-left: 3px;
+  white-space: nowrap;
 }
 #forien-ammo-swapper .weapon .info .selected .image {
   height: 25px;

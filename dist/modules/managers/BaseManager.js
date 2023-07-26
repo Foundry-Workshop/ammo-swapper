@@ -17,4 +17,10 @@ export default class BaseManager {
    * @param {string} ammoId
    */
   static async setAmmunition(weaponId, ammoId) {}
+
+  /**
+   *
+   * @param {string} weaponId
+   */
+  static async equipWeapon(weaponId) {}
 }

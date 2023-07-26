@@ -26,6 +26,16 @@ export default function registerSettings() {
     onChange: (_value) => ui.ammoSwapper?.render()
   });
 
+  game.settings.register(constants.moduleId, settings.onlyEquipped, {
+    name: 'Forien.AmmoSwapper.Settings.onlyEquipped.name',
+    hint: 'Forien.AmmoSwapper.Settings.onlyEquipped.hint',
+    scope: 'client',
+    config: true,
+    default: true,
+    type: Boolean,
+    onChange: (_value) => ui.ammoSwapper?.render()
+  });
+
   game.settings.register(constants.moduleId, settings.draggable, {
     name: 'Forien.AmmoSwapper.Settings.draggable.name',
     hint: 'Forien.AmmoSwapper.Settings.draggable.hint',

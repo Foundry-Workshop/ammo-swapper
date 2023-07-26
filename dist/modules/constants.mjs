@@ -13,9 +13,10 @@ const defaults = {
 const settings = {
   enable: 'enable',
   quantity: 'quantity',
+  onlyEquipped: 'onlyEquipped',
   draggable: 'draggable',
-  position: 'position',
-  resetPosition: 'resetPosition'
+  resetPosition: 'resetPosition',
+  position: 'position'
 }
 
 export {constants, defaults, settings};
