@@ -62,6 +62,7 @@
 }
 #forien-ammo-swapper .weapon .name {
   font-family: Lato, Signika, sans-serif;
+  white-space: nowrap;
 }
 #forien-ammo-swapper .weapon .info {
   display: flex;
@@ -71,6 +72,7 @@
 #forien-ammo-swapper .weapon .info > .name {
   font-variant: small-caps;
   font-size: 16px;
+  white-space: nowrap;
 }
 #forien-ammo-swapper .weapon .info .selected {
   height: 25px;
