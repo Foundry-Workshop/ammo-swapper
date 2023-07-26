@@ -41,8 +41,9 @@ export default class AmmoSwapperAPI {
   /**
    * Initializes AmmoSwapper with provided or predefined Manager
    */
-  initializeAmmoSwapper() {
-    this.#instance = AmmoSwapper.init(this.#getManager);
+  async initializeAmmoSwapper() {
+    let manager = await this.#getManager;
+    this.#instance = AmmoSwapper.init(manager);
   }
 
   /**

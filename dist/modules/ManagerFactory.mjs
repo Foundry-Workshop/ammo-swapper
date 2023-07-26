@@ -16,7 +16,8 @@ export default class ManagerFactory {
         return PF2eManager;
       case 'sfrpg':
         // dynamic import because of heavy code dependency
-        return await import("./managers/SFRPGManager.js");
+        const SFRPGManager = await import("./managers/SFRPGManager.js");
+        return SFRPGManager.default;
       case 'wfrp4e':
         return WFRP4eManager;
       default:
