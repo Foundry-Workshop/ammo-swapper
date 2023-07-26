@@ -26,6 +26,10 @@ Hooks.on("updateUser", (user, data, _options, _userId) => {
   if (Object.keys(data).includes('character')) game.modules.get(constants.moduleId).api?.initializeAmmoSwapper();
 });
 
+Hooks.on("createItem", (item, _options, _userId) => {
+  if (item.actor?.id === game.user.character?.id) game.modules.get(constants.moduleId).api?.render();
+});
+
 Hooks.on("updateItem", (item, _data, _diff, _userId) => {
   if (item.actor?.id === game.user.character?.id) game.modules.get(constants.moduleId).api?.render();
 });
