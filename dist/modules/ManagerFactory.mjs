@@ -3,11 +3,10 @@ import {constants} from "./constants.mjs";
 import DND5eManager from "./managers/DND5eManager.js";
 import PF1Manager from "./managers/PF1Manager.js";
 import PF2eManager from "./managers/PF2eManager.js";
-import SFRPGManager from "./managers/SFRPGManager.js";
 import WFRP4eManager from "./managers/WFRP4eManager.js";
 
 export default class ManagerFactory {
-  static getManagerBySystem(system) {
+  static async getManagerBySystem(system) {
     switch (system) {
       case 'dnd5e':
         return DND5eManager;
@@ -16,7 +15,8 @@ export default class ManagerFactory {
       case 'pf2e':
         return PF2eManager;
       case 'sfrpg':
-        return SFRPGManager;
+        // dynamic import because of heavy code dependency
+        return await import("./managers/SFRPGManager.js");
       case 'wfrp4e':
         return WFRP4eManager;
       default:
