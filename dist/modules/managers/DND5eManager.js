@@ -65,5 +65,6 @@ export default class DND5eManager extends BaseManager {
     const actor = game.user.character;
     const item = actor.items.get(weaponId);
 
-    return item.update({["system.equipped"]: !foundry.utils.getProperty(item, "system.equipped")});}
+    return item.update({["system.equipped"]: !foundry.utils.getProperty(item, "system.equipped")});
+  }
 }
