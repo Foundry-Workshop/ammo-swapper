@@ -1,10 +1,11 @@
 import {constants} from "./constants.mjs";
 import registerSettings from "./settings.mjs";
-import AmmoSwapper from "./AmmoSwapper.mjs";
 import Utility from "./utility/Utility.mjs";
+import AmmoSwapperAPI from "./AmmoSwapperAPI.mjs";
 
 Hooks.once('init', () => {
   registerSettings();
+  game.modules.get(constants.moduleId).api = new AmmoSwapperAPI();
 
   Hooks.callAll(`${constants.moduleId}:afterInit`);
   Utility.notify("Ammo Swapper initialized", {consoleOnly: true});
@@ -15,16 +16,16 @@ Hooks.once('setup', () => {
 });
 
 Hooks.once("ready", () => {
-  AmmoSwapper.init();
+  game.modules.get(constants.moduleId).api?.initializeAmmoSwapper();
 
   Hooks.callAll(`${constants.moduleId}:afterReady`);
   Utility.notify("Ammo Swapper ready", {consoleOnly: true});
 });
 
 Hooks.on("updateUser", (user, data, _options, _userId) => {
-  if (Object.keys(data).includes('character')) AmmoSwapper.init();
+  if (Object.keys(data).includes('character')) game.modules.get(constants.moduleId).api?.initializeAmmoSwapper();
 });
 
 Hooks.on("updateItem", (item, _data, _diff, _userId) => {
-  if (item.actor?.id === game.user.character?.id) ui.ammoSwapper?.render();
+  if (item.actor?.id === game.user.character?.id) game.modules.get(constants.moduleId).api?.render();
 });

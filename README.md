@@ -3,7 +3,7 @@
 ![GitHub Releases](https://img.shields.io/github/downloads/Foundry-Workshop/ammo-swapper/latest/total?style=for-the-badge) 
 ![GitHub All Releases](https://img.shields.io/github/downloads/Foundry-Workshop/ammo-swapper/total?style=for-the-badge&label=Downloads+total)  
 **[Compatibility]**: *FoundryVTT* 11+  
-**[Systems]**: *DnD5e 2.2.2, WFRP4e 6.5.1, PF2e 5.2.3, PF1 9.2, SFRPG 0.24.2, SWADE 3.0.6*  
+**[Systems]**: *DnD5e 2.2.2, WFRP4e 6.5.1, PF2e 5.2.3, PF1 9.2, SFRPG 0.24.2*  
 **[Languages]**: *English*  
 
 This module adds HUD allowing to easily swap used ammunition in ranged weapons. 

@@ -1,10 +1,10 @@
 import {constants, defaults, settings} from "./constants.mjs";
 import BaseManager from "./managers/BaseManager.js";
 import Error from "./utility/Error.js";
-import ManagerFactory from "./ManagerFactory.mjs";
 
 export default class AmmoSwapper extends Application {
   #positionTimeout;
+  #manager;
 
   constructor(manager, options) {
     if (!(manager.prototype instanceof BaseManager)) {
@@ -14,7 +14,7 @@ export default class AmmoSwapper extends Application {
 
     this.#setInitialPosition();
 
-    this.manager = manager;
+    this.#manager = manager;
   }
 
   /** @override */
@@ -27,11 +27,10 @@ export default class AmmoSwapper extends Application {
     });
   }
 
-  static init() {
+  static init(manager) {
     if (game.settings.get(constants.moduleId, settings.enable)) {
       if (game.user.character) {
         if (!(ui.ammoSwapper instanceof this)) {
-          let manager = ManagerFactory.getManagerBySystem(game.system.id);
           ui.ammoSwapper = new this(manager);
         }
         ui.ammoSwapper.render(true);
@@ -46,7 +45,7 @@ export default class AmmoSwapper extends Application {
 
   /** @override */
   getData(options) {
-    let weapons = this.manager.weapons;
+    let weapons = this.#manager.weapons;
 
     return {
       weapons: weapons,
@@ -145,7 +144,7 @@ export default class AmmoSwapper extends Application {
       const weaponId = weapon.data('weapon-id');
       const ammoId = ammo.data('ammo-id');
 
-      this.manager.setAmmunition(weaponId, ammoId).then(() => this.render());
+      this.#manager.setAmmunition(weaponId, ammoId).then(() => this.render());
     });
 
     html.on('click', '.weapon', (event) => {
@@ -159,7 +158,7 @@ export default class AmmoSwapper extends Application {
         event.stopPropagation();
         const weapon = $(event.currentTarget);
         const weaponId = weapon.data('weapon-id');
-        this.manager.equipWeapon(weaponId).then(() => this.render());
+        this.#manager.equipWeapon(weaponId).then(() => this.render());
       });
     }
   }
