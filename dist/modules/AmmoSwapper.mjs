@@ -27,6 +27,67 @@ export default class AmmoSwapper extends Application {
     });
   }
 
+  static init() {
+    if (game.settings.get(constants.moduleId, settings.enable)) {
+      if (game.user.character) {
+        if (!(ui.ammoSwapper instanceof this)) {
+          let manager = ManagerFactory.getManagerBySystem(game.system.id);
+          ui.ammoSwapper = new this(manager);
+        }
+        ui.ammoSwapper.render(true);
+
+        return ui.ammoSwapper;
+      }
+      ui.ammoSwapper?.close();
+    }
+
+    return undefined;
+  }
+
+  /** @override */
+  getData(options) {
+    let weapons = this.manager.weapons;
+
+    return {
+      weapons: weapons,
+      empty: weapons.length === 0,
+      displayQuantity: game.settings.get(constants.moduleId, settings.quantity)
+    };
+  }
+
+  /**
+   * @override
+   */
+  setPosition({left, top, width, height, scale} = {}) {
+    // Need to temporarily set resizable = true, so that position is correctly set via Draggable
+    this.options.resizable = true;
+    const newPosition = super.setPosition({left: left, top: top, height: height});
+    this.options.resizable = false;
+
+    // If app is below the middle of the screen, ammo pops upwards, otherwise downward
+    const ammoList = this.element.find('.ammunitions');
+    const {innerHeight: windowHeight} = window;
+
+    if (top > (windowHeight / 2)) {
+      ammoList.css('bottom', newPosition.height);
+      ammoList.css('top', 'auto');
+    } else {
+      ammoList.css('top', newPosition.height);
+      ammoList.css('bottom', 'auto');
+    }
+
+    // Save current position as setting, but wait a bit after dragging ends
+    if (this.#positionTimeout) {
+      clearTimeout(this.#positionTimeout);
+    }
+
+    this.#positionTimeout = setTimeout(() => {
+      game.settings.set(constants.moduleId, settings.position, JSON.stringify(this.position));
+    }, defaults.positionTimeoutDelay);
+
+    return newPosition;
+  }
+
   /**
    * Sets the initial position based on saved setting, otherwise sets the initial position
    */
@@ -61,50 +122,6 @@ export default class AmmoSwapper extends Application {
     this.#setDefaultPosition(true);
 
     this.render();
-  }
-
-  /**
-   * @override
-   */
-  setPosition({left, top, width, height, scale} = {}) {
-    // Need to temporarily set resizable = true, so that position is correctly set via Draggable
-    this.options.resizable = true;
-    const newPosition = super.setPosition({left:left, top:top, height: height});
-    this.options.resizable = false;
-
-    // If app is below the middle of the screen, ammo pops upwards, otherwise downward
-    const ammoList = this.element.find('.ammunitions');
-    const {innerHeight: windowHeight} = window;
-
-    if (top > (windowHeight / 2)) {
-      ammoList.css('bottom', newPosition.height);
-      ammoList.css('top', 'auto');
-    } else {
-      ammoList.css('top', newPosition.height);
-      ammoList.css('bottom', 'auto');
-    }
-
-    // Save current position as setting, but wait a bit after dragging ends
-    if (this.#positionTimeout) {
-      clearTimeout(this.#positionTimeout);
-    }
-
-    this.#positionTimeout = setTimeout(() => {
-      game.settings.set(constants.moduleId, settings.position, JSON.stringify(this.position));
-    }, defaults.positionTimeoutDelay);
-
-    return newPosition;
-  }
-
-  /** @override */
-  getData(options) {
-    let weapons = this.manager.weapons;
-
-    return {
-      weapons: weapons,
-      empty: weapons.length === 0,
-      displayQuantity: game.settings.get(constants.moduleId, 'quantity')
-    };
   }
 
   /** @override */
@@ -143,23 +160,6 @@ export default class AmmoSwapper extends Application {
       const weaponId = weapon.data('weapon-id');
       this.manager.equipWeapon(weaponId).then(() => this.render());
     });
-  }
-
-  static init() {
-    if (game.settings.get(constants.moduleId, 'enable')) {
-      if (game.user.character) {
-        if (!(ui.ammoSwapper instanceof this)) {
-          let manager = ManagerFactory.getManagerBySystem(game.system.id);
-          ui.ammoSwapper = new this(manager);
-        }
-        ui.ammoSwapper.render(true);
-
-        return ui.ammoSwapper;
-      }
-        ui.ammoSwapper?.close();
-    }
-
-    return undefined;
   }
 
   render(force = false, options = {}) {

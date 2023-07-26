@@ -19,13 +19,12 @@
   right: -15px;
   margin: 0;
   position: absolute;
-  height: calc(100% + 2px);
-  top: -1px;
-  border: 1px solid black;
-  border-left: none;
   border-radius: 0 5px 5px 0;
   z-index: 60;
-  box-sizing: border-box;
+  border: 1px solid black;
+  border-left: none;
+  height: calc(100% + 2px);
+  top: -1px;
   align-items: center;
   justify-items: center;
 }
