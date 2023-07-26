@@ -3,7 +3,7 @@
 ![GitHub Releases](https://img.shields.io/github/downloads/Foundry-Workshop/ammo-swapper/latest/total?style=for-the-badge) 
 ![GitHub All Releases](https://img.shields.io/github/downloads/Foundry-Workshop/ammo-swapper/total?style=for-the-badge&label=Downloads+total)  
 **[Compatibility]**: *FoundryVTT* 11+  
-**[Systems]**: *DnD5e 2.2.2, WFRP4e 6.5.1, PF2e 5.2.3, PF1 9.2, SFRPG 0.24.2*  
+**[Systems]**: * WFRP4e, DnD5e,PF2e, PF1, SFRPG*  
 **[Languages]**: *English*  
 
 This module adds HUD allowing to easily swap used ammunition in ranged weapons. 
@@ -14,7 +14,8 @@ This module adds HUD allowing to easily swap used ammunition in ranged weapons.
 2. While loaded in World, enable **_Forien's Ammo Swapper_** module.
 
 ## Screenshots
-<img src="https://i.gyazo.com/b32cfb70d45d3368750cb1ee80c95a0d.png" alt="screenshot"> 
+<img src="https://i.gyazo.com/b32cfb70d45d3368750cb1ee80c95a0d.png" alt="screenshot"/>
+<img src="https://i.imgur.com/JudSxFH.png" alt="screenshot"/>
 
 ## Future plans
 
@@ -22,9 +23,20 @@ You can **always** check current and up-to-date [planned and requested features 
 
 *If you have **any** suggestion or idea on new contents, hit me up on Discord!*
 
+## System support
+
+Module supports following systems:
+* DnD5e (tested version 2.2.2)
+* PF1 (tested version 9.2)
+* PF2e (tested version 5.2.3)
+* SFRPG (tested version 0.24.2)
+* WFRP4e (tested version 6.6.1)
+
+For additional support please open an [issue](https://github.com/Foundry-Workshop/ammo-swapper/issues), or you can use the API to include support within your system/module.
+
 ## Contact
 
-If you wish to contact me for any reason, reach me out on Discord using my tag: `Forien#2130`
+If you wish to contact me for any reason, reach me out on Discord using my handle: `forien`
 
 ## Support
 

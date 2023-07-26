@@ -1,5 +1,13 @@
 # Changelog
 
+## v0.2.0
+* Added support for PF2e, PF1 and SFRPG systems
+* Updated module to work with foundry v11
+* Created API that allows 3rd party modules or systems to add integration
+* Added option to make app draggable/repositionable
+* Added option to show all weapons, not only equipped ones
+* Added option to be able to toggle equipped state on weapons (right click on weapon when using "show all" setting)
+
 ## v0.1.2
 * Added support "Simple Ranged" for dnd 5e 
 

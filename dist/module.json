@@ -1,12 +1,12 @@
 {
-  "name": "forien-ammo-swapper",
+  "id": "forien-ammo-swapper",
   "title": "Forien's Ammo Swapper",
   "version": "0.2.0",
   "url": "https://github.com/Foundry-Workshop/ammo-swapper",
   "manifest": "https://raw.githubusercontent.com/Foundry-Workshop/ammo-swapper/master/src/module.json",
-  "download": "https://github.com/Foundry-Workshop/ammo-swapper/releases/download/v0.1.2/v0.1.2.zip",
-  "readme": "https://github.com/Foundry-Workshop/ammo-swapper/blob/v0.1.2/README.md",
-  "changelog": "https://github.com/Foundry-Workshop/ammo-swapper/blob/v0.1.2/changelog.md",
+  "download": "https://github.com/Foundry-Workshop/ammo-swapper/releases/download/v0.2.0/module.zip",
+  "readme": "https://github.com/Foundry-Workshop/ammo-swapper/blob/v0.2.0/README.md",
+  "changelog": "https://github.com/Foundry-Workshop/ammo-swapper/blob/v0.2.0/CHANGELOG.md",
   "bugs": "https://github.com/Foundry-Workshop/ammo-swapper/issues",
   "description": "Adds HUD displaying all equipped ranged weapons and allowing to easily swap ammunition used in that weapon. Currently supports DND 5e and WFRP 4e.",
   "authors": [
