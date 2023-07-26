@@ -2,16 +2,16 @@
 ![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/Foundry-Workshop/ammo-swapper?style=for-the-badge) 
 ![GitHub Releases](https://img.shields.io/github/downloads/Foundry-Workshop/ammo-swapper/latest/total?style=for-the-badge) 
 ![GitHub All Releases](https://img.shields.io/github/downloads/Foundry-Workshop/ammo-swapper/total?style=for-the-badge&label=Downloads+total)  
-**[Compatibility]**: *FoundryVTT* 0.6.0+  
-**[Systems]**: *DnD5e, WFRP4e, PF2e, PF1, SFRPG*  
+**[Compatibility]**: *FoundryVTT* 11+  
+**[Systems]**: *DnD5e 2.2.2, WFRP4e 6.5.1, PF2e 5.2.3, PF1 9.2, SFRPG 0.24.2, SWADE 3.0.6*  
 **[Languages]**: *English*  
 
 This module adds HUD allowing to easily swap used ammunition in ranged weapons. 
 
 ## Installation
 
-1. Install Workshop's Ammo Swapper using manifest URL: https://raw.githubusercontent.com/Foundry-Workshop/ammo-swapper/master/src/module.json
-2. While loaded in World, enable **_Workshop's Ammo Swapper_** module.
+1. Install Forien's Ammo Swapper using manifest URL: https://raw.githubusercontent.com/Foundry-Workshop/ammo-swapper/master/src/module.json
+2. While loaded in World, enable **_Forien's Ammo Swapper_** module.
 
 ## Screenshots
 <img src="https://i.gyazo.com/b32cfb70d45d3368750cb1ee80c95a0d.png" alt="screenshot"> 
@@ -33,6 +33,6 @@ If you wish to support module development, please consider [becoming Patron](htt
 
 ## License
 
-Welcome Screen is a module for Foundry VTT by Forien and is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/).
+Forien's Ammo Swapper is a module for Foundry VTT by Forien and is licensed under a MIT License.
 
-This work is licensed under Foundry Virtual Tabletop [EULA - Limited License Agreement for module development from May 29, 2020](https://foundryvtt.com/article/license/).
+This work is licensed under Foundry Virtual Tabletop [EULA - Limited License for Package Development from March 2, 2023](https://foundryvtt.com/article/license/).
