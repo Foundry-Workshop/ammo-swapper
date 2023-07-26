@@ -6,12 +6,19 @@
 **[Systems]**: *WFRP4e, DnD5e,PF2e, PF1, SFRPG*  
 **[Languages]**: *English*  
 
-This module adds HUD allowing to easily swap used ammunition in ranged weapons. 
+This module for Foundry Virtual Tabletop adds HUD allowing to easily swap which ammunition is being used in ranged weapons. 
 
 ## Installation
 
 1. Install Forien's Ammo Swapper using manifest URL: https://raw.githubusercontent.com/Foundry-Workshop/ammo-swapper/master/src/module.json
 2. While loaded in World, enable **_Forien's Ammo Swapper_** module.
+
+## Usage
+* Assign character to your user account
+* Equip ranged weapon(s)
+* Click on HUD displayed on bottom of your screen to bring out selectable list of owned ammunition
+* Click on any ammunition on the list to change weapon's ammunition
+* [if "show only equipped" setting is disabled] Right-Click on weapon to toggle it's equipped state!
 
 ## Screenshots
 <img src="https://i.gyazo.com/b32cfb70d45d3368750cb1ee80c95a0d.png" alt="screenshot"/>
@@ -25,14 +32,17 @@ You can **always** check current and up-to-date [planned and requested features 
 
 ## System support
 
-Module supports following systems:
-* DnD5e (tested version 2.2.2)
-* PF1 (tested version 9.2)
-* PF2e (tested version 5.2.3)
-* SFRPG (tested version 0.24.2)
-* WFRP4e (tested version 6.6.1)
+* Module supports following systems:
+  * DnD5e (tested version 2.2.2)
+  * PF1 (tested version 9.2)
+  * PF2e (tested version 5.2.3)
+  * SFRPG (tested version 0.24.2)
+  * WFRP4e (tested version 6.6.1)
+* Module displays only weapons/ammunition that exist on the Actor, using data from that Actor.
+* Module doesn't include any weapons and/or ammunition Items.
+* Module should work fine with any custom weapons/ammo created for supported systems.
 
-For additional support please open an [issue](https://github.com/Foundry-Workshop/ammo-swapper/issues), or you can use the API to include support within your system/module.
+For additional support (for example other systems) please open an [issue](https://github.com/Foundry-Workshop/ammo-swapper/issues), or you can use the API to include support within your system/module.
 
 ## Contact
 
