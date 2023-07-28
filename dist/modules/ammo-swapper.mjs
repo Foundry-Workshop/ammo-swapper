@@ -8,7 +8,7 @@ Hooks.once('init', () => {
   game.modules.get(constants.moduleId).api = new AmmoSwapperAPI();
 
   Hooks.callAll(`${constants.moduleId}:afterInit`);
-  Utility.notify("Ammo Swapper initialized", {consoleOnly: true});
+  Utility.notify(`${constants.moduleLabel} initialized`, {consoleOnly: true});
 });
 
 Hooks.once('setup', () => {
@@ -19,7 +19,7 @@ Hooks.once("ready", () => {
   game.modules.get(constants.moduleId).api?.initializeAmmoSwapper();
 
   Hooks.callAll(`${constants.moduleId}:afterReady`);
-  Utility.notify("Ammo Swapper ready", {consoleOnly: true});
+  Utility.notify(`${constants.moduleLabel} ready`, {consoleOnly: true});
 });
 
 Hooks.on("updateUser", (user, data, _options, _userId) => {
