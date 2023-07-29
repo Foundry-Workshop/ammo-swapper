@@ -11,7 +11,7 @@ export default class WFRP4eManager extends BaseManager {
     const actor = game.user.character;
     const items = actor.items;
     const checkEquipped = game.settings.get(constants.moduleId, settings.onlyEquipped);
-    const weapons = items.filter(i => i.type === 'weapon' && (checkEquipped ? i.system.equipped === true : true) && i.system.ammunitionGroup.value !== "none");
+    const weapons = items.filter(i => i.type === 'weapon' && (checkEquipped ? i.system.equipped === true : true) && i.system.ammunitionGroup.value.length && i.system.ammunitionGroup.value !== "none");
     const ammunition = this.ammunition;
 
     return weapons.map(w => {

@@ -1,5 +1,8 @@
 # Changelog
 
+## v0.2.1
+* Fixed UiA weapons showing up with empty `ammunitionGroup.value`. Thanks Milo for reporting bug.
+
 ## v0.2.0
 * Added support for PF2e, PF1 and SFRPG systems
 * Updated module to work with foundry v11
