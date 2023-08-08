@@ -27,9 +27,13 @@ Hooks.on("updateUser", (user, data, _options, _userId) => {
 });
 
 Hooks.on("createItem", (item, _options, _userId) => {
-  if (item.actor?.id === game.user.character?.id) game.modules.get(constants.moduleId).api?.render();
+  if (item.actor?._id === game.user.character?._id) game.modules.get(constants.moduleId).api?.render();
 });
 
 Hooks.on("updateItem", (item, _data, _diff, _userId) => {
-  if (item.actor?.id === game.user.character?.id) game.modules.get(constants.moduleId).api?.render();
+  if (item.actor?._id === game.user.character?._id) game.modules.get(constants.moduleId).api?.render();
+});
+
+Hooks.on("deleteItem", (item, _sheet, _options) => {
+  if (item.actor?._id === game.user.character?._id) game.modules.get(constants.moduleId).api?.render();
 });

@@ -37,12 +37,18 @@ export default class PF2eManager extends BaseManager {
     // No ammo types in PF2e?
     let ammo = items.filter(i => i.type === 'consumable' && i.system.consumableType.value === 'ammo');
 
-    return ammo.map(a => ({
-      _id: a._id,
-      img: a.img,
-      name: a.name,
-      quantity: a.system.quantity
-    }));
+    return ammo.map(a => {
+      let quantity = a.system.quantity;
+      if (a.system.charges?.max > 0)
+        quantity = `${a.system.charges.value}/${a.system.charges.max}`;
+
+      return {
+        _id: a._id,
+        img: a.img,
+        name: a.name,
+        quantity: quantity
+      }
+    });
   }
 
   /**

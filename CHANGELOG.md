@@ -1,5 +1,8 @@
 # Changelog
 
+## v0.2.2
+* **PF2e** – Added support for displaying charges for ammunition (like Repeating Crossbow Magazine).
+
 ## v0.2.1
 * Fixed UiA weapons showing up with empty `ammunitionGroup.value`. Thanks Milo for reporting bug.
 
