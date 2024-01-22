@@ -7,7 +7,7 @@ export default class PF1Manager extends BaseManager {
    * @return {ItemWeaponPF[]}
    */
   static get weapons() {
-    const actor = game.user.character;
+    const actor = this.character;
     const items = actor.items;
     const checkEquipped = game.settings.get(constants.moduleId, settings.onlyEquipped);
     const weapons = items.filter(i => (i.type === 'weapon' && (checkEquipped ? i.system.equipped === true : true) && PF1Manager.#actionUsesAmmo(i) !== false));
@@ -48,7 +48,7 @@ export default class PF1Manager extends BaseManager {
    * @return {ItemWeaponPF[]}
    */
   static get ammunition() {
-    const actor = game.user.character;
+    const actor = this.character;
     const items = actor.items;
     let ammo = items.filter(i => i.type === 'loot' && i.system.subType === 'ammo');
     let ammunition = {};
@@ -75,7 +75,7 @@ export default class PF1Manager extends BaseManager {
    * @param {string} ammoId
    */
   static async setAmmunition(weaponId, ammoId) {
-    const actor = game.user.character;
+    const actor = this.character;
     const weapon = actor.items.find(i => i.id === weaponId);
 
     if (weapon) {
@@ -88,7 +88,7 @@ export default class PF1Manager extends BaseManager {
    * @param {string} weaponId
    */
   static async equipWeapon(weaponId) {
-    const actor = game.user.character;
+    const actor = this.character;
     const weapon = actor.items.get(weaponId);
 
     return weapon.update({["system.equipped"]: !foundry.utils.getProperty(weapon, "system.equipped")});

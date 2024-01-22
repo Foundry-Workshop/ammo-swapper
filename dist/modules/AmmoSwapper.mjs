@@ -19,7 +19,7 @@ export default class AmmoSwapper extends Application {
 
   /** @override */
   static get defaultOptions() {
-    return mergeObject(super.defaultOptions, {
+    return foundry.utils.mergeObject(super.defaultOptions, {
       id: "workshop-ammo-swapper",
       template: `${constants.modulePath}/templates/ammo-swapper.hbs`,
       popOut: false,
@@ -29,16 +29,14 @@ export default class AmmoSwapper extends Application {
 
   static init(manager) {
     if (game.settings.get(constants.moduleId, settings.enable)) {
-      if (game.user.character) {
-        if (!(ui.ammoSwapper instanceof this)) {
-          ui.ammoSwapper = new this(manager);
-        }
-        ui.ammoSwapper.render(true);
-
-        return ui.ammoSwapper;
+      if (!(ui.ammoSwapper instanceof this)) {
+        ui.ammoSwapper = new this(manager);
       }
-      ui.ammoSwapper?.close();
+      ui.ammoSwapper.render(true);
+
+      return ui.ammoSwapper;
     }
+    ui.ammoSwapper?.close();
 
     return undefined;
   }
@@ -164,7 +162,7 @@ export default class AmmoSwapper extends Application {
   }
 
   render(force = false, options = {}) {
-    if (game.user.character?.id) {
+    if (this.#manager.character) {
       return super.render(force, options);
     }
     this.close();

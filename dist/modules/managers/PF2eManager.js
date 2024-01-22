@@ -7,7 +7,7 @@ export default class PF2eManager extends BaseManager {
    * @return {_WeaponPF2e2[]}
    */
   static get weapons() {
-    const actor = game.user.character;
+    const actor = this.character;
     const items = actor.items;
     const checkEquipped = game.settings.get(constants.moduleId, settings.onlyEquipped);
     const weapons = items.filter(i => (i.type === 'weapon' && (checkEquipped ? i.system.equipped.carryType === 'held' : true) && i.requiresAmmo === true));
@@ -32,7 +32,7 @@ export default class PF2eManager extends BaseManager {
    * @return {_WeaponPF2e2[]}
    */
   static get ammunition() {
-    const actor = game.user.character;
+    const actor = this.character;
     const items = actor.items;
     // No ammo types in PF2e?
     let ammo = items.filter(i => i.type === 'consumable' && i.system.category === 'ammo');
@@ -57,7 +57,7 @@ export default class PF2eManager extends BaseManager {
    * @param {string} ammoId
    */
   static async setAmmunition(weaponId, ammoId) {
-    const actor = game.user.character;
+    const actor = this.character;
     const weapon = actor.items.find(i => i.id === weaponId);
 
     if (weapon) {
@@ -70,7 +70,7 @@ export default class PF2eManager extends BaseManager {
    * @param {string} weaponId
    */
   static async equipWeapon(weaponId) {
-    const actor = game.user.character;
+    const actor = this.character;
     const weapon = actor.items.get(weaponId).toObject();
 
     if (weapon.system.equipped.carryType === "held") {

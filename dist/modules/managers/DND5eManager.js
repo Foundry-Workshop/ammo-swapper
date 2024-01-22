@@ -7,7 +7,7 @@ export default class DND5eManager extends BaseManager {
    * @return {Item5e[]}
    */
   static get weapons() {
-    const actor = game.user.character;
+    const actor = this.character;
     const items = actor.items;
     const checkEquipped = game.settings.get(constants.moduleId, settings.onlyEquipped);
     const weapons = items.filter(i => (i.type === 'weapon' && (checkEquipped ? i.system.equipped === true : true) && ["simpleR", "martialR"].includes(i.system.weaponType) && i.system.consume.type === 'ammo'));
@@ -32,7 +32,7 @@ export default class DND5eManager extends BaseManager {
    * @return {Item5e[]}
    */
   static get ammunition() {
-    const actor = game.user.character;
+    const actor = this.character;
     const items = actor.items;
     let ammo = items.filter(i => i.type === 'consumable' && i.system.consumableType === 'ammo');
 
@@ -50,7 +50,7 @@ export default class DND5eManager extends BaseManager {
    * @param {string} ammoId
    */
   static async setAmmunition(weaponId, ammoId) {
-    const actor = game.user.character;
+    const actor = this.character;
     const weapon = actor.items.find(i => i.id === weaponId);
     if (weapon) {
       await weapon.update({'system.consume.target': ammoId});
@@ -62,7 +62,7 @@ export default class DND5eManager extends BaseManager {
    * @param {string} weaponId
    */
   static async equipWeapon(weaponId) {
-    const actor = game.user.character;
+    const actor = this.character;
     const item = actor.items.get(weaponId);
 
     return item.update({["system.equipped"]: !foundry.utils.getProperty(item, "system.equipped")});

@@ -8,7 +8,7 @@ export default class WFRP4eManager extends BaseManager {
    * @return {ItemWfrp4e[]}
    */
   static get weapons() {
-    const actor = game.user.character;
+    const actor = this.character;
     const items = actor.items;
     const checkEquipped = game.settings.get(constants.moduleId, settings.onlyEquipped);
     const weapons = items.filter(i => i.type === 'weapon' && (checkEquipped ? i.system.equipped === true : true) && i.system.ammunitionGroup.value.length && i.system.ammunitionGroup.value !== "none");
@@ -34,7 +34,7 @@ export default class WFRP4eManager extends BaseManager {
    * @return {ItemWfrp4e[]}
    */
   static get ammunition() {
-    const actor = game.user.character;
+    const actor = this.character;
     const items = actor.items;
     let ammo = items.filter(i => i.type === 'ammunition');
     let ammunition = {};
@@ -60,7 +60,7 @@ export default class WFRP4eManager extends BaseManager {
    * @param {string} ammoId
    */
   static async setAmmunition(weaponId, ammoId) {
-    const actor = game.user.character;
+    const actor = this.character;
     const weapon = actor.items.find(i => i.id === weaponId);
     if (weapon) {
       return await weapon.update({'system.currentAmmo.value': ammoId});
@@ -72,7 +72,7 @@ export default class WFRP4eManager extends BaseManager {
    * @param {string} weaponId
    */
   static async equipWeapon(weaponId) {
-    const actor = game.user.character;
+    const actor = this.character;
     const weapon = actor.items.find(i => i.id === weaponId).toObject();
     weapon.system.equipped = !weapon.system.equipped;
     let equippedState = weapon.system.equipped;
@@ -90,7 +90,7 @@ export default class WFRP4eManager extends BaseManager {
       }
     }
 
-    setProperty(weapon, "system.offhand.value", false);
+    foundry.utils.setProperty(weapon, "system.offhand.value", false);
     await actor.updateEmbeddedDocuments("Item", [weapon]);
 
     try {
