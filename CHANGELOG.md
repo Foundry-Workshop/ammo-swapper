@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.3.0
+* Allowed GMs to use the HUD with selected tokens instead of assigned characters
+* **PF2e** - Updated module for the PF2e's 5.11.0+ data structure
+
 ## v0.2.2
 * **PF2e** – Added support for displaying charges for ammunition (like Repeating Crossbow Magazine).
 

@@ -14,11 +14,17 @@ This module for Foundry Virtual Tabletop adds HUD allowing to easily swap which 
 2. While loaded in World, enable **_Forien's Ammo Swapper_** module.
 
 ## Usage
+
+### As Player
 * Assign character to your user account
 * Equip ranged weapon(s)
 * Click on HUD displayed on bottom of your screen to bring out selectable list of owned ammunition
 * Click on any ammunition on the list to change weapon's ammunition
-* [if "show only equipped" setting is disabled] Right-Click on weapon to toggle it's equipped state!
+* **If `show only equipped` setting is disabled** Right-Click on weapon to toggle its equipped state!
+
+### As Game Master
+* You can either use the module like the Players (via assigned character),
+* Or you can use it by selecting tokens on the canvas. 
 
 ## Screenshots
 <img src="https://i.gyazo.com/b32cfb70d45d3368750cb1ee80c95a0d.png" alt="screenshot"/>
@@ -33,11 +39,11 @@ You can **always** check current and up-to-date [planned and requested features 
 ## System support
 
 * Module supports following systems:
-  * DnD5e (tested version 2.2.2)
-  * PF1 (tested version 9.2)
-  * PF2e (tested version 5.2.3)
-  * SFRPG (tested version 0.24.2)
-  * WFRP4e (tested version 6.6.1)
+  * DnD5e (tested version 2.4.1)
+  * PF1 (tested version 9.6)
+  * PF2e (tested version 5.12.7)
+  * SFRPG (tested version 0.25.2)
+  * WFRP4e (tested version 7.1.0)
 * Module displays only weapons/ammunition that exist on the Actor, using data from that Actor.
 * Module doesn't include any weapons and/or ammunition Items.
 * Module should work fine with any custom weapons/ammo created for supported systems.

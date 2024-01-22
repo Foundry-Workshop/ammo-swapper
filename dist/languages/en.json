@@ -21,7 +21,7 @@
         },
         "onlyEquipped": {
           "name": "Show only equipped Weapons",
-          "hint": "When checked, shows all available weapons. Otherwise shows only equipped."
+          "hint": "When unchecked, shows all available weapons. Otherwise shows only equipped."
         }
       },
 
