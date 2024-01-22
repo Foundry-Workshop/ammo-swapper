@@ -1,8 +1,13 @@
 # FoundryVTT - Forien's Ammo Swapper
-![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/Foundry-Workshop/ammo-swapper?style=for-the-badge) 
-![GitHub Releases](https://img.shields.io/github/downloads/Foundry-Workshop/ammo-swapper/latest/module.zip?style=for-the-badge) 
+![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/Foundry-Workshop/ammo-swapper?style=for-the-badge)
+![Foundry Core Compatible Version](https://img.shields.io/badge/dynamic/json.svg?url=https%3A%2F%2Fraw.githubusercontent.com%2FFoundry-Workshop%2Fammo-swapper%2Fmaster%2Fdist%2Fmodule.json&label=Foundry%20Min%20Version&query=$.compatibility.minimum&colorB=orange&style=for-the-badge)
+![Foundry Core Compatible Version](https://img.shields.io/badge/dynamic/json.svg?url=https%3A%2F%2Fraw.githubusercontent.com%2FFoundry-Workshop%2Fammo-swapper%2Fmaster%2Fdist%2Fmodule.json&label=Foundry%20Verified&query=$.compatibility.verified&colorB=orange&style=for-the-badge)  
+![License](https://img.shields.io/github/license/Foundry-Workshop/ammo-swapper?style=for-the-badge) ![GitHub Releases](https://img.shields.io/github/downloads/Foundry-Workshop/ammo-swapper/latest/module.zip?style=for-the-badge)
 ![GitHub All Releases](https://img.shields.io/github/downloads/Foundry-Workshop/ammo-swapper/module.zip?style=for-the-badge&label=Downloads+total)  
-**[Compatibility]**: *FoundryVTT* 11+  
+[![Discord](https://img.shields.io/badge/Discord-%235865F2.svg?style=for-the-badge&logo=discord&logoColor=white&link=https%3A%2F%2Fdiscord.gg%2FXkTFv8DRDc)](https://discord.gg/XkTFv8DRDc)
+[![Patreon](https://img.shields.io/badge/Patreon-F96854?style=for-the-badge&logo=patreon&logoColor=white)](https://www.patreon.com/foundryworkshop)
+[![Ko-Fi](https://img.shields.io/badge/Ko--fi-F16061?style=for-the-badge&logo=ko-fi&logoColor=white)](https://ko-fi.com/forien)  
+
 **[Systems]**: *WFRP4e, DnD5e,PF2e, PF1, SFRPG*  
 **[Languages]**: *English*  
 
