@@ -35,7 +35,7 @@ export default class PF2eManager extends BaseManager {
     const actor = game.user.character;
     const items = actor.items;
     // No ammo types in PF2e?
-    let ammo = items.filter(i => i.type === 'consumable' && i.system.consumableType.value === 'ammo');
+    let ammo = items.filter(i => i.type === 'consumable' && i.system.category === 'ammo');
 
     return ammo.map(a => {
       let quantity = a.system.quantity;
