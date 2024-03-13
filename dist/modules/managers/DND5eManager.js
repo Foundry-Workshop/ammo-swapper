@@ -10,7 +10,7 @@ export default class DND5eManager extends BaseManager {
     const actor = this.character;
     const items = actor.items;
     const checkEquipped = game.settings.get(constants.moduleId, settings.onlyEquipped);
-    const weapons = items.filter(i => (i.type === 'weapon' && (checkEquipped ? i.system.equipped === true : true) && ["simpleR", "martialR"].includes(i.system.weaponType) && i.system.consume.type === 'ammo'));
+    const weapons = this.filterWeapons(items, checkEquipped);
     const ammunition = this.ammunition;
 
     return weapons.map(w => {
@@ -27,6 +27,24 @@ export default class DND5eManager extends BaseManager {
     });
   }
 
+  static filterWeapons(items, checkEquipped) {
+    if (foundry.utils.isNewerVersion(game.system.version, '3.0.0'))
+      return items.filter(i => (
+        i.type === 'weapon' &&
+        (checkEquipped ? i.system.equipped === true : true) &&
+        ["simpleR", "martialR"].includes(i.system.type.value) &&
+        i.system.consume.type === 'ammo'
+      ));
+
+    // Support DND 5e < 3.0.0
+    return items.filter(i => (
+      i.type === 'weapon' &&
+      (checkEquipped ? i.system.equipped === true : true) &&
+      ["simpleR", "martialR"].includes(i.system.weaponType) &&
+      i.system.consume.type === 'ammo'
+    ));
+  }
+
   /**
    *
    * @return {Item5e[]}
@@ -34,7 +52,7 @@ export default class DND5eManager extends BaseManager {
   static get ammunition() {
     const actor = this.character;
     const items = actor.items;
-    let ammo = items.filter(i => i.type === 'consumable' && i.system.consumableType === 'ammo');
+    const ammo = this.filterAmmo(items);
 
     return ammo.map(a => ({
       _id: a._id,
@@ -42,6 +60,14 @@ export default class DND5eManager extends BaseManager {
       name: a.name,
       quantity: a.system.quantity
     }));
+  }
+
+  static filterAmmo(items) {
+    if (foundry.utils.isNewerVersion(game.system.version, '3.0.0'))
+      return items.filter(i => i.type === 'consumable' && i.system.type.value === 'ammo');
+
+    // Support DND 5e < 3.0.0
+    return items.filter(i => i.type === 'consumable' && i.system.consumableType === 'ammo');
   }
 
   /**

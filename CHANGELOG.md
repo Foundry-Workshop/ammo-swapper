@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.3.1
+* Added support for DND 5e version 3.0.0 and higher
+  * Support for older DND 5e has not been removed
+
 ## v0.3.0
 * Allowed GMs to use the HUD with selected tokens instead of assigned characters
 * **PF2e** - Updated module for the PF2e's 5.11.0+ data structure
