@@ -1,5 +1,8 @@
 # Changelog
 
+## v0.3.2
+* Added Japanese translation (by doumoku)
+
 ## v0.3.1
 * Added support for DND 5e version 3.0.0 and higher
   * Support for older DND 5e has not been removed

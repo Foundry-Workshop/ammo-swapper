@@ -64,6 +64,9 @@ If you wish to contact me for any reason, reach me out on Discord using my handl
 If you wish to support module development, please consider [becoming Patron](https://www.patreon.com/foundryworkshop).
 
 
+## Acknowledgements
+* Thanks to doumoku for providing Japanese translations
+
 ## License
 
 Forien's Ammo Swapper is a module for Foundry VTT by Forien and is licensed under a MIT License.
