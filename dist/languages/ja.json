@@ -1,0 +1,33 @@
+{
+  "Forien": {
+    "AmmoSwapper": {
+
+      "Settings": {
+        "enable": {
+          "name": "Ammo Swapperを有効化",
+          "hint": "チェックしてこのブラウザでAmmo Swapper HUDを有効にする。"
+        },
+        "quantity": {
+          "name": "弾数を表示",
+          "hint": "チェックするとAmmo Swapper HUDに矢弾の個数が表示される。"
+        },
+        "draggable": {
+          "name": "ウィンドウのドラッグ可能化",
+          "hint": "チェックするとAmmo Swapperウィンドウをドラッグして位置を変更できる。"
+        },
+        "resetPosition": {
+          "name": "位置をリセット",
+          "hint": "チェックするとAmmo Swapperを初期位置に戻す。"
+        },
+        "onlyEquipped": {
+          "name": "装備中の武器のみ表示",
+          "hint": "非チェック時、利用可能な武器をすべて表示する。そうでなければ装備中のもののみ表示する。"
+        }
+      },
+
+      "HUD": {
+        "noAmmoSelected": "矢弾が選択されていない"
+      }
+    }
+  }
+}
