@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.4.0
+* Added Container name to ammunition selection for WFRP4e and PF2e systems
+* Yet another change to make Ammo Swapper compatible with PF2e 5.14.4
+
 ## v0.3.2
 * Added Japanese translation (by doumoku)
 

@@ -10,7 +10,7 @@ export default class PF2eManager extends BaseManager {
     const actor = this.character;
     const items = actor.items;
     const checkEquipped = game.settings.get(constants.moduleId, settings.onlyEquipped);
-    const weapons = items.filter(i => (i.type === 'weapon' && (checkEquipped ? i.system.equipped.carryType === 'held' : true) && i.requiresAmmo === true));
+    const weapons = items.filter(i => (i.type === 'weapon' && (checkEquipped ? i.system.equipped.carryType === 'held' : true) && (i.requiresAmmo === true || i.ammoRequired)));
     const ammunition = this.ammunition;
 
     return weapons.map(w => {
@@ -42,10 +42,13 @@ export default class PF2eManager extends BaseManager {
       if (a.system.charges?.max > 0)
         quantity = `${a.system.charges.value}/${a.system.charges.max}`;
 
+      const container = actor.itemTypes.backpack.find(c => c.id === a.system.containerId);
+
       return {
         _id: a._id,
         img: a.img,
         name: a.name,
+        container: container?.name,
         quantity: quantity
       }
     });

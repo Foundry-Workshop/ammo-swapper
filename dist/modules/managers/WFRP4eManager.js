@@ -43,10 +43,13 @@ export default class WFRP4eManager extends BaseManager {
       if (ammunition[ammoType] === undefined)
         ammunition[ammoType] = [];
 
+      const container = actor.itemTypes.container.find(c => c.id === a.location.value);
+
       ammunition[ammoType].push({
         _id: a._id,
         img: a.img,
         name: a.name,
+        container: container?.name,
         quantity: a.system.quantity.value
       })
     });

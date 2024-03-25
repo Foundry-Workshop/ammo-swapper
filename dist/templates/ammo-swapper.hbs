@@ -22,7 +22,7 @@
             {{#each this.ammunition}}
             <div class="ammo" data-ammo-id="{{this._id}}">
                 <img src="{{this.img}}" class="image" alt="{{this.name}}">
-                <span class="name">{{this.name}} {{#if ../../displayQuantity}}({{this.quantity}}){{/if}}</span>
+                <span class="name">{{this.name}} {{#if this.container}}– {{this.container}}{{/if}} {{#if ../../displayQuantity}}({{this.quantity}}){{/if}}</span>
             </div>
             {{/each}}
         </div>
