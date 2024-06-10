@@ -1,5 +1,8 @@
 # Changelog
 
+## v0.4.1
+* Verified for Foundry v12.327
+
 ## v0.4.0
 * Added Container name to ammunition selection for WFRP4e and PF2e systems
 * Yet another change to make Ammo Swapper compatible with PF2e 5.14.4

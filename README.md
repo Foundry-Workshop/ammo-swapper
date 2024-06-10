@@ -44,11 +44,11 @@ You can **always** check current and up-to-date [planned and requested features 
 ## System support
 
 * Module supports following systems:
-  * DnD5e (tested version 2.4.1)
+  * DnD5e (tested version 3.2.0)
   * PF1 (tested version 9.6)
   * PF2e (tested version 5.12.7)
   * SFRPG (tested version 0.25.2)
-  * WFRP4e (tested version 7.1.0)
+  * WFRP4e (tested version 7.2.1)
 * Module displays only weapons/ammunition that exist on the Actor, using data from that Actor.
 * Module doesn't include any weapons and/or ammunition Items.
 * Module should work fine with any custom weapons/ammo created for supported systems.
